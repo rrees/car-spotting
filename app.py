@@ -6,13 +6,14 @@ import requests
 import flask
 
 import auth0
+import config
 
 app = flask.Flask(__name__)
 
 
 @app.route('/')
 def index():
-    return flask.render_template("index.html")
+    return flask.render_template("index.html", config=config.config)
 
 @app.route('/home')
 def home():
