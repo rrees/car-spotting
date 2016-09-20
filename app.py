@@ -9,6 +9,7 @@ import auth0
 import config
 
 app = flask.Flask(__name__)
+app.secret_key = os.urandom(24)
 
 
 @app.route('/')
