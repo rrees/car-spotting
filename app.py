@@ -18,7 +18,8 @@ def index():
 
 @app.route('/home')
 def home():
-	return "Home page"
+	user = flask.session['profile']
+	return "Home page for {user}".format(user=user['nickname'])
 
 @app.route('/callback')
 def authorisation_callback():
