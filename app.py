@@ -5,12 +5,17 @@ import logging
 import requests
 import flask
 
+from flask_sslify import SSLify
+
 import auth0
 import config
 
 app = flask.Flask(__name__)
 app.secret_key = os.urandom(24)
 
+
+if not os.environ.get("ENV", "PROD") == "DEV":
+	sslify = SSLify(app)
 
 @app.route('/')
 def index():
