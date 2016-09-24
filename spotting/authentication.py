@@ -6,6 +6,8 @@ import requests
 import config
 import headers
 
+ENV = os.environ.get('ENV', 'PROD')
+
 def obtain_user_info(code):
 
 	token_url ="https://{domain}/oauth/token".format(domain=config.auth0['domain'])
@@ -13,7 +15,7 @@ def obtain_user_info(code):
 	payload = {
 		'client_id': config.auth0['client_id'],
 		'client_secret': os.environ['AUTH0_SECRET'],
-		'redirect_uri': 'http://localhost:5000/callback',
+		'redirect_uri': config.callback_url[ENV],
 		'code': code,
 		'grant_type': 'authorization_code',
 	}
