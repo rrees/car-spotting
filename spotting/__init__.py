@@ -7,6 +7,8 @@ import flask
 
 from flask_sslify import SSLify
 
+import decorators
+
 import authentication
 import config
 
@@ -24,6 +26,7 @@ def index():
     return flask.render_template("index.html", config=config.config, callback_url = config.callback_url[ENV])
 
 @app.route('/home')
+@decorators.requires_auth
 def home():
 	user = flask.session['profile']
 	return flask.render_template("home.html", user=user)
