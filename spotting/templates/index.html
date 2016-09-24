@@ -14,7 +14,7 @@
 
   function open() {
     lock.emailcode({
-      callbackURL: 'http://localhost:5000/callback',
+      callbackURL: '{{callback_url}}',
       authParams: {
         scope: 'openid email'  // Learn about scopes: https://auth0.com/docs/scopes 
       }

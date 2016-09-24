@@ -10,16 +10,18 @@ from flask_sslify import SSLify
 import authentication
 import config
 
+ENV = os.environ.get("ENV", "PROD")
+
 app = flask.Flask(__name__)
 app.secret_key = os.urandom(24)
 
 
-if not os.environ.get("ENV", "PROD") == "DEV":
+if not ENV == "DEV":
 	sslify = SSLify(app)
 
 @app.route('/')
 def index():
-    return flask.render_template("index.html", config=config.config)
+    return flask.render_template("index.html", config=config.config, callback_url = config.callback_url[ENV])
 
 @app.route('/home')
 def home():
