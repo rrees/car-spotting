@@ -7,8 +7,8 @@ auth0 = {
 }
 
 callback_url = {
-	'DEV': "http://localhost:5000",
-	'PROD': "https://car-spotting.herokuapp.com",
+	'DEV': "http://localhost:5000/callback",
+	'PROD': "https://car-spotting.herokuapp.com/callback",
 }
 
 config = {
