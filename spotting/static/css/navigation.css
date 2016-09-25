@@ -3,6 +3,7 @@
 	display: flex;
 	height: 3rem;
 	width: 100%;
+	max-width: 60rem;
 	position: absolute;
 	top: 0;
 	justify-content: space-between;
@@ -10,5 +11,4 @@
 
 .navigation-bar--actions {
 	justify-content: flex-end;
-	flex: auto;
 }
