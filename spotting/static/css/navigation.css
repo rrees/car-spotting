@@ -1,0 +1,14 @@
+
+.navigation-bar {
+	display: flex;
+	height: 3rem;
+	width: 100%;
+	position: absolute;
+	top: 0;
+	justify-content: space-between;
+}
+
+.navigation-bar--actions {
+	justify-content: flex-end;
+	flex: auto;
+}
