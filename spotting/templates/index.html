@@ -2,3 +2,27 @@
 
 {% block content %}
 {% endblock %}
+
+{% block scripts %}
+    <script src="https://cdn.auth0.com/js/lock-passwordless-2.2.min.js"></script>
+    <script type="text/javascript">
+    var clientID = '{{app_config.auth0.client_id}}';
+    var domain = '{{app_config.auth0.domain}}';
+
+    const lock = new Auth0LockPasswordless(clientID, domain);
+
+    function open() {
+      lock.emailcode({
+        callbackURL: '{{callback_url}}',
+        authParams: {
+        scope: 'openid email'  // Learn about scopes: https://auth0.com/docs/scopes 
+        }
+      });
+    }
+
+    const loginButton = document.getElementById('login-button');
+    console.log(loginButton);
+
+    loginButton.addEventListener('click', open);
+    </script>
+{% endblock %}
