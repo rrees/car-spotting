@@ -1,7 +1,7 @@
 
 .navigation-bar {
 	display: flex;
-	height: 3rem;
+	height: var(--navigation-bar-height);
 	width: 100%;
 	max-width: 60rem;
 	position: absolute;

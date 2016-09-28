@@ -2,6 +2,7 @@
 body {
 	max-width: 60rem;
 	margin: auto;
-	margin-top: 4rem;
+	margin-top: var(--navigation-bar-height);
+	padding-top: 1rem;
 	font-family: 'Open Sans', Helevetica, Arial, sans-serif;
 }
