@@ -4,4 +4,17 @@
 
 {% block content %}
 <p>{{user}}</p>
+<form class="form" method="POST" action="/forms/log/submission">
+	<div class="control-group">
+		<label forid="brand">Brand</label>
+		<input id="brand" name="brand" type="text" required>
+	</div>
+	<div class="control-group">
+		<label forid="model">Model</label>
+		<input id="model" name="model" type="text">
+	</div>
+	<div class="control-group">
+		<button type="submit">Record</button>
+	</div>	
+</form>
 {% endblock %}

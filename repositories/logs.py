@@ -9,7 +9,7 @@ fieldbook_config = json.loads(os.environ['FIELDBOOK_CONFIG'])
 
 fieldbook_api = fieldbook.FieldbookClient(fieldbook_config['API_KEY'], fieldbook_config['API_SECRET'], fieldbook_config['URL'])
 
-def save_log(brand, model=None):
+def save(brand, model=None):
 
     iso_now = datetime.date.today().isoformat()
 

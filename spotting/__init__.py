@@ -11,6 +11,8 @@ import decorators
 
 import authentication
 import config
+import forms
+from repositories import logs
 
 ENV = os.environ.get("ENV", "PROD")
 
@@ -41,6 +43,16 @@ def authorisation_callback():
 
     if user_info:
         flask.session['profile'] = user_info
+
+    return flask.redirect('/home')
+
+@app.route('/forms/log/submission', methods=['POST'])
+def log_spot():
+    form = forms.LogForm(flask.request.form)
+
+    if form.validate():
+        logs.save(form.brand.data, form.model.data)
+        flask.flash('Log recorded')
 
     return flask.redirect('/home')
 
