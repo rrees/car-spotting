@@ -16,7 +16,7 @@ Front page
     const lock = new Auth0LockPasswordless(clientID, domain);
 
     function open() {
-      lock.emailcode({
+      lock.magiclink({
         callbackURL: '{{callback_url}}',
         authParams: {
         scope: 'openid email'  // Learn about scopes: https://auth0.com/docs/scopes 

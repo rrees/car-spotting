@@ -6,7 +6,7 @@ import logging
 import fieldbook_py as fieldbook
 
 fieldbook_config = json.loads(os.environ['FIELDBOOK_CONFIG'])
-logging.info(fieldbook_config)
+
 fieldbook_api = fieldbook.FieldbookClient(fieldbook_config['API_KEY'], fieldbook_config['API_SECRET'], fieldbook_config['URL'])
 
 def save_log(brand, model=None):
