@@ -1,0 +1,11 @@
+
+.form {
+	display: flex;
+	flex-direction: column;
+}
+
+.form--control-group {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: var(--base-font-size);
+}
