@@ -37,6 +37,10 @@ def home():
 
 @app.route('/callback')
 def authorisation_callback():
+
+    if 'profile' in flask.session:
+        return flask.redirect('/home')
+    
     code = flask.request.args.get('code')
 
     user_info = authentication.obtain_user_info(code)
