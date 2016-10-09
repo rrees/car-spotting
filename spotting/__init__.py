@@ -12,6 +12,7 @@ import decorators
 import authentication
 import config
 import forms
+import data
 from repositories import logs
 
 ENV = os.environ.get("ENV", "PROD")
@@ -33,7 +34,7 @@ def index():
 @decorators.requires_auth
 def home():
     user = flask.session['profile']
-    return flask.render_template("home.html", user=user)
+    return flask.render_template("home.html", user=user, brands=data.brands)
 
 @app.route('/callback')
 def authorisation_callback():

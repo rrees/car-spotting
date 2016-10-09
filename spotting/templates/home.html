@@ -7,7 +7,16 @@
 <form class="form" method="POST" action="/forms/log/submission">
 	<div class="form--control-group">
 		<label forid="brand">Brand</label>
-		<input id="brand" name="brand" type="text" required>
+		<select id="brand" name="brand">
+			<option name=""></option>
+			{% for brand in brands %}
+			<option value="{{brand}}">{{brand}}</option>
+			{% endfor %}
+		</select>
+	</div>
+	<div class="form--control-group">
+		<label forid="brand-free">Brand (other)</label>
+		<input id="brand-free" name="brand" type="text">
 	</div>
 	<div class="form--control-group">
 		<label forid="model">Model</label>
