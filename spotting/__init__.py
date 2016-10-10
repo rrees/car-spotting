@@ -28,7 +28,7 @@ if not ENV == "DEV":
     sslify = SSLify(app)
 
     redis_instance = redis.from_url(os.environ.get("REDIS_URL"))
-    app.session.interface = redis_session.RedisSessionInterface(redis=redis_instance)
+    app.session_interface = redis_session.RedisSessionInterface(redis=redis_instance)
 
 @app.route('/')
 def index():
