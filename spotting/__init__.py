@@ -6,9 +6,11 @@ import requests
 import flask
 
 from flask_sslify import SSLify
-from flask.ext.session import Session
+
+import redis
 
 import decorators
+import redis_session
 
 import authentication
 import config
@@ -25,9 +27,8 @@ app.secret_key = os.urandom(24)
 if not ENV == "DEV":
     sslify = SSLify(app)
 
-    session = Session()
-    app.config['SESSION_TYPE'] = 'redis'
-    session.init_app(app)
+    redis = redis.from_url(os.environ.get("REDIS_URL"))
+    app.session.interface = redis_session.RedisSessionInterface(redis=redis_instance)
 
 @app.route('/')
 def index():
