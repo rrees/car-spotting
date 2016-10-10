@@ -27,7 +27,7 @@ app.secret_key = os.urandom(24)
 if not ENV == "DEV":
     sslify = SSLify(app)
 
-    redis = redis.from_url(os.environ.get("REDIS_URL"))
+    redis_instance = redis.from_url(os.environ.get("REDIS_URL"))
     app.session.interface = redis_session.RedisSessionInterface(redis=redis_instance)
 
 @app.route('/')
