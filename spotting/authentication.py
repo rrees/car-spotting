@@ -26,7 +26,7 @@ def obtain_user_info(code):
 
 	token_info_json = token_info_response.json()
 
-	l#ogging.info(token_info_json)
+	#logging.info(token_info_json)
 
 	user_url = "https://{domain}/userinfo?access_token={access_token}".format(domain=config.auth0['domain'],
 		access_token=token_info_json['access_token'])
