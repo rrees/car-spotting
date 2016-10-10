@@ -27,7 +27,7 @@ if not ENV == "DEV":
 
     session = Session()
     app.config['SESSION_TYPE'] = 'redis'
-    sess.init_app(app)
+    session.init_app(app)
 
 @app.route('/')
 def index():
