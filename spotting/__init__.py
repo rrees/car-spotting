@@ -6,6 +6,7 @@ import requests
 import flask
 
 from flask_sslify import SSLify
+from flask.ext.session import Session
 
 import decorators
 
@@ -23,6 +24,10 @@ app.secret_key = os.urandom(24)
 
 if not ENV == "DEV":
     sslify = SSLify(app)
+
+    session = Session()
+    app.config['SESSION_TYPE'] = 'redis'
+    sess.init_app(app)
 
 @app.route('/')
 def index():
@@ -59,7 +64,7 @@ def log_spot():
         logs.save(form.brand.data, form.model.data)
         flask.flash('Log recorded')
 
-    return flask.redirect('/home')
+    return flask.redirect(flask.url_for('home'))
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port = int(os.environ.get('PORT', 3000)))
