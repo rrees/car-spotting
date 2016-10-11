@@ -61,9 +61,15 @@ def authorisation_callback():
 def log_spot():
     form = forms.LogForm(flask.request.form)
 
+    #logging.info(flask.request.form)
+
     if form.validate():
-        logs.save(form.brand.data, form.model.data)
+        brand = form.brand_free.data if form.brand_free.data else form.brand.data
+        model = form.model.data
+        logs.save(brand, model)
         flask.flash('Log recorded')
+    else:
+        logging.warning('Failed to valid form input')
 
     return flask.redirect(flask.url_for('home'))
 
