@@ -69,7 +69,7 @@ def log_spot():
         logs.save(brand, model)
         flask.flash('Log recorded')
     else:
-        logging.warning('Failed to valid form input')
+        logging.warning('Failed to validate form input')
 
     return flask.redirect(flask.url_for('home'))
 
