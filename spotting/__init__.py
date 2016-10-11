@@ -23,10 +23,10 @@ ENV = os.environ.get("ENV", "PROD")
 app = flask.Flask(__name__)
 app.secret_key = os.urandom(24)
 
-
 if not ENV == "DEV":
     sslify = SSLify(app)
 
+if "REDIS_URL" in os.environ:
     redis_instance = redis.from_url(os.environ.get("REDIS_URL"))
     app.session_interface = redis_session.RedisSessionInterface(redis=redis_instance)
 
@@ -70,6 +70,7 @@ def log_spot():
         flask.flash('Log recorded')
     else:
         logging.warning('Failed to validate form input')
+        logging.info(form.errors)
 
     return flask.redirect(flask.url_for('home'))
 
