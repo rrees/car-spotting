@@ -67,7 +67,7 @@ def log_spot():
         brand = form.brand_free.data if form.brand_free.data else form.brand.data
         model = form.model.data
         logs.save(brand, model)
-        flask.flash('Log recorded')
+        flask.flash('Log recorded', 'success')
     else:
         logging.warning('Failed to validate form input')
         logging.info(form.errors)

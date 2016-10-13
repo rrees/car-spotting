@@ -4,6 +4,14 @@
 
 {% block content %}
 
+{% with messages = get_flashed_messages(category_filter=["success"]) %}
+{% if messages %}
+	{% for message in messages %}
+	<div class="alert alert-success">{{message}}</div>
+	{% endfor %}
+{% endif %}
+{% endwith %}
+
 <form class="form" method="POST" action="/forms/log/submission">
 	<div class="form--control-group">
 		<label forid="brand">Brand</label>
