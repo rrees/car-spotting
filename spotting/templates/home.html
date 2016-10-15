@@ -4,13 +4,7 @@
 
 {% block content %}
 
-{% with messages = get_flashed_messages(category_filter=["success"]) %}
-{% if messages %}
-	{% for message in messages %}
-	<div class="flash flash-success">{{message}}</div>
-	{% endfor %}
-{% endif %}
-{% endwith %}
+{% include 'flash-messages.html' %}
 
 <form class="form" method="POST" action="/forms/log/submission">
 	<div class="form--control-group">
