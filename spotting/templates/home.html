@@ -4,7 +4,9 @@
 
 {% block content %}
 
-{% include 'flash-messages.html' %}
+{% include 'macros.html' %}
+
+{{ flash_messages('success') }}
 
 <form class="form" method="POST" action="/forms/log/submission">
 	<div class="form--control-group">

@@ -1,0 +1,9 @@
+{% macro flash_messages(category) %}
+	{% with messages = get_flashed_messages(category_filter=[category]) %}
+	{% if messages %}
+		{% for message in messages %}
+		<div class="flash flash-success">{{message}}</div>
+		{% endfor %}
+	{% endif %}
+	{% endwith %}
+{% endmacro %}
