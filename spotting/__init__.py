@@ -74,5 +74,13 @@ def log_spot():
 
     return flask.redirect(flask.url_for('home'))
 
+@app.route('/api/brand')
+def models_lookup():
+    brand_name = flask.request.args.get('brand', None)
+
+    models = [] if not brand_name else data.models.get(brand_name, [])
+
+    return flask.jsonify({"models" : models})
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port = int(os.environ.get('PORT', 3000)))
