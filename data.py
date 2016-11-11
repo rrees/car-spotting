@@ -8,6 +8,7 @@ brands = [
     'Ferrari',
     'Jaguar',
     'Lamborghini',
+    'Mazda',
     'Mercedes-Benz',
     'Porsche',
 	'Tesla',
@@ -29,5 +30,8 @@ models = {
         'Panamera',
         'Cayman',
         'Boxster',
+    ],
+    'mazda': [
+        "MX5",
     ]
 }
