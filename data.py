@@ -8,6 +8,7 @@ brands = [
     'Ferrari',
     'Jaguar',
     'Lamborghini',
+    'Maserati',
     'Mazda',
     'Mercedes-Benz',
     'Porsche',
