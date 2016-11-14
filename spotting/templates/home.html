@@ -8,7 +8,7 @@
 
 {{ flash_messages('success') }}
 
-<form class="form" method="POST" action="/forms/log/submission">
+<form id="spotting-form" class="form" method="POST" action="/forms/log/submission">
 	<div class="form--control-group">
 		<label forid="brand">Brand</label>
 		<select id="brand" name="brand">
@@ -30,4 +30,16 @@
 		<button class="btn" type="submit">Record</button>
 	</div>	
 </form>
+{% endblock %}
+
+{% block scripts %}
+<script src="http://vuejs.org/js/vue.min.js"></script>
+<script>
+const app = new Vue({
+	el: "#spotting-form",
+	data: {
+		
+	}
+});
+</script>
 {% endblock %}
