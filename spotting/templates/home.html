@@ -11,7 +11,7 @@
 <form id="spotting-form" class="form" method="POST" action="/forms/log/submission">
 	<div class="form--control-group">
 		<label forid="brand">Brand</label>
-		<select id="brand" name="brand">
+		<select id="brand" name="brand" v-model="brand">
 			<option></option>
 			{% for brand in brands %}
 			<option value="{{brand}}">{{brand}}</option>
@@ -24,7 +24,13 @@
 	</div>
 	<div class="form--control-group">
 		<label forid="model">Model</label>
-		<input id="model" name="model" type="text">
+		<input id="model" name="model" type="text" v-model="model">
+		<div class="suggested-models-list">
+			<!-- <pre>[[$data]]</pre> -->
+			<ul>
+				<li v-for="model in models" v-on:click="setModel(model)">[[model]]</li>
+			</ul>
+		</div>
 	</div>
 	<div class="form--control-group">
 		<button class="btn" type="submit">Record</button>
@@ -35,10 +41,37 @@
 {% block scripts %}
 <script src="https://vuejs.org/js/vue.min.js"></script>
 <script>
+
 const app = new Vue({
+	delimiters: ["[[", "]]"],
 	el: "#spotting-form",
 	data: {
-
+		brand: undefined,
+		model: undefined,
+		models: undefined
+	},
+	methods: {
+		setModel: function(modelName) {
+			const vm = this;
+			vm.model = modelName;
+		}
+	},
+	computed: {
+		modelChoicesPresent: function() {
+			return this.models.length > 0;
+		}
+	},
+	watch: {
+		brand: function() {
+			const vm = this;
+			fetch('/api/brand/' + vm.brand)
+				.then((response) => {
+					response.json().then((json) => {
+						//console.log(json);
+						vm.models = json.models;
+					})
+				});
+		}
 	}
 });
 </script>
