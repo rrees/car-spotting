@@ -16,7 +16,11 @@ brands = [
 ]
 
 models = {
+    'audi': [
+        'TT',
+    ],
     'jaguar': [
+        'XE',
         'XF',
     ],
     'bmw': [
