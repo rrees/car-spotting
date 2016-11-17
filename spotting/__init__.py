@@ -74,7 +74,7 @@ def log_spot():
 
     return flask.redirect(flask.url_for('home'))
 
-@app.route('/api/brand/<brand_name>')
+@app.route('/api/brand/<brand_name>/models/suggestions')
 def models_lookup(brand_name):
 
     models = [] if not brand_name else data.models.get(brand_name.lower(), [])

@@ -65,7 +65,7 @@ const app = new Vue({
 	watch: {
 		brand: function() {
 			const vm = this;
-			fetch('/api/brand/' + vm.brand)
+			fetch('/api/brand/' + vm.brand + '/models/suggestions')
 				.then((response) => {
 					response.json().then((json) => {
 						//console.log(json);
