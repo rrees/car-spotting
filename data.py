@@ -13,6 +13,7 @@ brands = [
     'Mercedes-Benz',
     'Porsche',
 	'Tesla',
+    'Toyota',
 ]
 
 models = {
@@ -24,7 +25,10 @@ models = {
         'XF',
     ],
     'bmw': [
+        'i3',
         'i8',
+        'Z3',
+        'Z4',
     ],
     'tesla': [
         'Model S'
