@@ -44,5 +44,13 @@ models = {
     ],
     'mazda': [
         "MX5",
-    ]
+    ],
+    'mercedes-benz': [
+        'SLK',
+        'SL',
+    ],
+    'aston martin': [
+        'DB',
+        'Vantage'
+    ],
 }
