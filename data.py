@@ -20,6 +20,11 @@ models = {
     'audi': [
         'TT',
     ],
+    'aston martin': [
+        'DB',
+        'Vanquish',
+        'Vantage',
+    ],
     'jaguar': [
         'XE',
         'XF',
