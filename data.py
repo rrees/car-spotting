@@ -28,6 +28,7 @@ models = {
     'jaguar': [
         'XE',
         'XF',
+        'XK',
         'XJ',
         'F-Type',
     ],

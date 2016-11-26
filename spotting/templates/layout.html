@@ -19,19 +19,6 @@
 			<h1>Car spotter</h1>
 			</header>
 		</div>
-
-		<div class="navigation-bar--actions">
-			{% if user %}
-			<div class="navigation-bar--user-info">
-				<p>Hello {{user.nickname}}!</p>
-			</div>
-			{% else %}
-			<div class="navigation-bar--actions--login">
-					<p><button id="login-button" class="btn">Login</button></p>
-			</div>
-			{% endif %}
-		</div>
-
 	</nav>
 	{% endblock %}
 
