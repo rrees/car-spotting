@@ -30,6 +30,7 @@ models = {
         'XF',
         'XK',
         'XJ',
+        'XJL',
         'F-Type',
     ],
     'bmw': [
