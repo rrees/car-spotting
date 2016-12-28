@@ -60,4 +60,7 @@ models = {
         'DB',
         'Vantage'
     ],
+    'lamborghini': [
+        'Aventador',
+    ]
 }
