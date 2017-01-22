@@ -62,5 +62,6 @@ models = {
     ],
     'lamborghini': [
         'Aventador',
+        'Gallardo',
     ]
 }
