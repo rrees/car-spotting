@@ -63,5 +63,10 @@ models = {
     'lamborghini': [
         'Aventador',
         'Gallardo',
+    ],
+    'maserati': [
+        'Ghibli',
+        'GranTurismo',
+        'Quattroporte',
     ]
 }
