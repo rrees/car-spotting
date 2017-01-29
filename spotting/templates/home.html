@@ -23,6 +23,10 @@
 		<input id="brand-free" name="brand_free" type="text">
 	</div>
 	<div class="form--control-group">
+		<label forid="classic">Classic</label>
+		<input id="classic" name="classic" type="checkbox">
+	</div>
+	<div class="form--control-group">
 		<label forid="model">Model</label>
 		<input id="model" name="model" type="text" v-model="model">
 		<div class="suggested-models-list">
@@ -34,7 +38,7 @@
 	</div>
 	<div class="form--control-group">
 		<button class="btn" type="submit">Record</button>
-	</div>	
+	</div>
 </form>
 {% endblock %}
 
