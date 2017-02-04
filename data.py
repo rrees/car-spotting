@@ -12,9 +12,10 @@ brands = [
     'Mazda',
     'Mercedes-Benz',
     'Porsche',
+    'Rolls-Royce',
 	'Tesla',
     'Toyota',
-]
+,]
 
 models = {
     'audi': [
@@ -68,5 +69,10 @@ models = {
         'Ghibli',
         'GranTurismo',
         'Quattroporte',
+    ],
+    'rolls-royce': [
+        'Dawn',
+        'Ghost',
+        'Wraith',
     ]
 }
