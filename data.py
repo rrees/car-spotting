@@ -15,7 +15,7 @@ brands = [
     'Rolls-Royce',
 	'Tesla',
     'Toyota',
-,]
+]
 
 models = {
     'audi': [
