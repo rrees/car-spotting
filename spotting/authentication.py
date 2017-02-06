@@ -3,8 +3,8 @@ import logging
 import json
 
 import requests
-import config
-import headers
+import spotting.config as config
+import spotting.headers as headers
 
 ENV = os.environ.get('ENV', 'PROD')
 

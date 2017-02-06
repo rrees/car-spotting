@@ -12,10 +12,12 @@ import redis
 import decorators
 import redis_session
 
-import authentication
-import config
+import spotting.authentication as authentication
+import spotting.config as config
 import forms
+
 import data
+
 from repositories import logs
 
 ENV = os.environ.get("ENV", "PROD")
@@ -47,7 +49,7 @@ def authorisation_callback():
 
     if 'profile' in flask.session:
         return flask.redirect('/home')
-    
+
     code = flask.request.args.get('code')
 
     user_info = authentication.obtain_user_info(code)

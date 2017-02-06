@@ -12,6 +12,7 @@ brands = [
     'Mazda',
     'Mercedes-Benz',
     'Porsche',
+    'Rolls-Royce',
 	'Tesla',
     'Toyota',
 ]
@@ -68,5 +69,10 @@ models = {
         'Ghibli',
         'GranTurismo',
         'Quattroporte',
+    ],
+    'rolls-royce': [
+        'Dawn',
+        'Ghost',
+        'Wraith',
     ]
 }
