@@ -20,6 +20,7 @@ brands = [
 models = {
     'audi': [
         'TT',
+        'R8',
     ],
     'aston martin': [
         'DB',
