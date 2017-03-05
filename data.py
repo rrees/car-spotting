@@ -39,7 +39,7 @@ models = {
         'Continental GT',
         'Mulsanne',
         'Flying Spur',
-    ]
+    ],
     'bmw': [
         'i3',
         'i8',

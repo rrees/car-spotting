@@ -64,7 +64,6 @@ def log_spot():
     form = forms.LogForm(flask.request.form)
 
     #logging.info(flask.request.form)
-
     if form.validate():
         brand = form.brand_free.data if form.brand_free.data else form.brand.data
         model = form.model.data
