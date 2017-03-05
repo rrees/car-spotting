@@ -35,6 +35,11 @@ models = {
         'XJL',
         'F-Type',
     ],
+    'bentley': [
+        'Continental GT',
+        'Mulsanne',
+        'Flying Spur',
+    ]
     'bmw': [
         'i3',
         'i8',
