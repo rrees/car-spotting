@@ -8,17 +8,3 @@ body {
 	font-family: 'Open Sans', Helevetica, Arial, sans-serif;
 	font-size: var(--base-font-size);
 }
-
-label {
-	font-weight: bold;
-	margin-bottom: 0.5rem;
-}
-
-input[type="text"] {
-	line-height: 2.5rem;
-	font-size: 1.5rem;
-}
-
-select {
-	font-size: 1.5rem;
-}
