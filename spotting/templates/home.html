@@ -20,7 +20,9 @@
 	</div>
 	<div class="form--control-group">
 		<label forid="brand-free">Brand (other)</label>
-		<input id="brand-free" name="brand_free" type="text">
+		<input id="brand-free" name="brand_free" type="text" v-model="brandFree">
+		<div class="suggested-brands-list">
+		</div>
 	</div>
 	<div class="form--control-group">
 		<label forid="classic">Classic</label>
@@ -52,7 +54,9 @@ const app = new Vue({
 	data: {
 		brand: undefined,
 		model: undefined,
-		models: undefined
+		models: undefined,
+		brandFree: undefined,
+		suggestedBrands: undefined
 	},
 	methods: {
 		setModel: function(modelName) {
