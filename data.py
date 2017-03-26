@@ -17,6 +17,12 @@ brands = [
     'Toyota',
 ]
 
+infrequent_brands = [
+    'Ford',
+    'Chrysler',
+    'Chevrolet',
+]
+
 models = {
     'audi': [
         'TT',
@@ -81,5 +87,8 @@ models = {
         'Dawn',
         'Ghost',
         'Wraith',
+    ],
+    'ford': [
+        'Mustang GT',
     ]
 }
