@@ -80,6 +80,16 @@ const app = new Vue({
 						vm.models = json.models;
 					})
 				});
+		},
+		brandFree: function() {
+			const vm = this;
+			fetch('/api/brand/' + vm.brandFree + '/models/suggestions')
+				.then((response) => {
+					response.json().then((json) => {
+						//console.log(json);
+						vm.models = json.models;
+					})
+				});
 		}
 	}
 });
