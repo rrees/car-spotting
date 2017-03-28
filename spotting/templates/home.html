@@ -48,6 +48,21 @@
 <script src="https://vuejs.org/js/vue.min.js"></script>
 <script>
 
+function readModels(brand) {
+	return fetch('/api/brand/' + brand + '/models/suggestions')
+				.then((response) => {
+					if(response.ok) {
+						return response.json()
+							.then((json) => {
+								//console.log(json);
+								return json.models;
+							})
+					} else {
+						return [];
+					}
+				});
+}
+
 const app = new Vue({
 	delimiters: ["[[", "]]"],
 	el: "#spotting-form",
@@ -73,23 +88,11 @@ const app = new Vue({
 	watch: {
 		brand: function() {
 			const vm = this;
-			fetch('/api/brand/' + vm.brand + '/models/suggestions')
-				.then((response) => {
-					response.json().then((json) => {
-						//console.log(json);
-						vm.models = json.models;
-					})
-				});
+			readModels(vm.brand).then((models) => vm.models = models);
 		},
 		brandFree: function() {
 			const vm = this;
-			fetch('/api/brand/' + vm.brandFree + '/models/suggestions')
-				.then((response) => {
-					response.json().then((json) => {
-						//console.log(json);
-						vm.models = json.models;
-					})
-				});
+			readModels(vm.brandFree).then((models) => vm.models = models);
 		}
 	}
 });
