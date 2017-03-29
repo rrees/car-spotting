@@ -45,6 +45,12 @@
 {% endblock %}
 
 {% block scripts %}
+<script>
+setTimeout(() => {
+	document.querySelector(".flash").style.visibility = "hidden";
+}, 4000);
+</script>
+
 <script src="https://vuejs.org/js/vue.min.js"></script>
 <script>
 
