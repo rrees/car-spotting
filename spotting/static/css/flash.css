@@ -5,8 +5,11 @@
 	margin-bottom: 1rem;
 	text-align: center;
 	top: 0;
+	left: 0;
+	right: 0;
 	height:	40px;
-	width: 100%;
+	width: 80vw;
+	max-width: 50rem;
 }
 
 .flash-success {
