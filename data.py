@@ -53,7 +53,8 @@ models = {
         'Z4',
     ],
     'tesla': [
-        'Model S'
+        'Model S',
+        'Model X'
     ],
     'porsche': [
         '911',
