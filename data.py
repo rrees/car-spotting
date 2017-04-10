@@ -21,6 +21,7 @@ infrequent_brands = [
     'Ford',
     'Chrysler',
     'Chevrolet',
+    'Nissan',
 ]
 
 models = {
@@ -91,5 +92,8 @@ models = {
     ],
     'ford': [
         'Mustang GT',
-    ]
+    ],
+    'nissan': [
+        'Leaf',
+    ],
 }
