@@ -1,6 +1,7 @@
 import os
 import json
 import logging
+import datetime
 
 import requests
 import flask
@@ -24,6 +25,11 @@ ENV = os.environ.get("ENV", "PROD")
 
 app = flask.Flask(__name__)
 app.secret_key = os.urandom(24)
+
+app.config.update({
+    'PERMANENT_SESSION_LIFETIME': datetime.timedelta(days=2)
+    })
+
 
 if not ENV == "DEV":
     sslify = SSLify(app)
