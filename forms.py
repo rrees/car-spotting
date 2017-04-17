@@ -5,6 +5,7 @@ class LogForm(wtforms.Form):
     brand_free = wtforms.StringField('Brand', [wtforms.validators.Optional()])
     model = wtforms.StringField('Model', [])
     classic = wtforms.BooleanField('Classic', [])
+    convertible = wtforms.BooleanField('Convertible', [])
 
     def validate(self):
         if not wtforms.Form.validate(self):

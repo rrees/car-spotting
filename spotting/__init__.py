@@ -74,7 +74,8 @@ def log_spot():
         brand = form.brand_free.data if form.brand_free.data else form.brand.data
         model = form.model.data
         classic = form.classic.data
-        logs.save(brand, model, classic)
+        convertible = form.convertible.data
+        logs.save(brand, model, classic, convertible)
         flask.flash('Log recorded', 'success')
     else:
         logging.warning('Failed to validate form input')
