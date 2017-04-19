@@ -64,6 +64,8 @@ models = {
         'Cayman',
         'Boxster',
         'Targa',
+        '718 Boxster',
+        '718 Cayman',
     ],
     'mazda': [
         "MX5",
