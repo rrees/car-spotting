@@ -90,5 +90,8 @@ models = {
     ],
     'ford': [
         'Mustang GT',
+    ],
+    'abarth': [
+        '500',
     ]
 }
