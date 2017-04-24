@@ -21,6 +21,7 @@ infrequent_brands = [
     'Ford',
     'Chrysler',
     'Chevrolet',
+    'Nissan',
 ]
 
 models = {
@@ -53,7 +54,8 @@ models = {
         'Z4',
     ],
     'tesla': [
-        'Model S'
+        'Model S',
+        'Model X'
     ],
     'porsche': [
         '911',
@@ -62,6 +64,8 @@ models = {
         'Cayman',
         'Boxster',
         'Targa',
+        '718 Boxster',
+        '718 Cayman',
     ],
     'mazda': [
         "MX5",
@@ -93,5 +97,8 @@ models = {
     ],
     'abarth': [
         '500',
-    ]
+    ],
+    'nissan': [
+        'Leaf',
+    ],
 }
