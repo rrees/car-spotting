@@ -97,12 +97,18 @@ models = {
     'ford': [
         'Mustang GT',
     ],
+    'abarth': [
+        '500',
+    ],
     'nissan': [
         'Leaf',
     ],
     'mclaren': [
         '570S',
-    ]
+    ],
+    'chrysler' : [
+        '300',
+    ],
 }
 
 model_subtypes = [
