@@ -21,6 +21,7 @@ infrequent_brands = [
     'Ford',
     'Chrysler',
     'Chevrolet',
+    'Mclaren'
     'Nissan',
 ]
 
@@ -64,6 +65,7 @@ models = {
         'Cayman',
         'Boxster',
         'Targa',
+        '911 Carrera'
         '718 Boxster',
         '718 Cayman',
     ],
@@ -98,4 +100,14 @@ models = {
     'nissan': [
         'Leaf',
     ],
+    'mclaren': [
+        '570S',
+    ]
 }
+
+model_subtypes = [
+    'porsche' : [
+        'S',
+        'GTS',
+    ]
+]
