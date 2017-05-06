@@ -111,9 +111,9 @@ models = {
     ],
 }
 
-model_subtypes = [
-    'porsche' : [
+model_subtypes = {
+    'porsche': [
         'S',
         'GTS',
-    ]
-]
+    ],
+}
