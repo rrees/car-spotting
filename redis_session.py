@@ -37,7 +37,7 @@ class RedisSessionInterface(SessionInterface):
         return str(uuid4())
 
     def get_redis_expiration_time(self, app, session):
-        logging.info(session.permanent)
+
         if session.permanent:
             return app.permanent_session_lifetime
         return self.default_expiry_time
@@ -64,8 +64,8 @@ class RedisSessionInterface(SessionInterface):
         redis_exp = self.get_redis_expiration_time(app, session)
         cookie_exp = self.get_expiration_time(app, session)
 
-        logging.info(redis_exp)
-        logging.info(cookie_exp)
+        #logging.info(redis_exp)
+        #logging.info(cookie_exp)
 
         val = self.serializer.dumps(dict(session))
         self.redis.setex(self.prefix + session.sid, val,
