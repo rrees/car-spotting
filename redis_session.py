@@ -1,10 +1,15 @@
+import logging
+
 import pickle
+
 from datetime import timedelta
 from uuid import uuid4
+
 from redis import Redis
 from werkzeug.datastructures import CallbackDict
 from flask.sessions import SessionInterface, SessionMixin
 
+default_session_days = 3
 
 class RedisSession(CallbackDict, SessionMixin):
 
@@ -26,12 +31,13 @@ class RedisSessionInterface(SessionInterface):
             redis = Redis()
         self.redis = redis
         self.prefix = prefix
-        self.default_expiry_time = timedelta(days=1)
+        self.default_expiry_time = timedelta(days=default_session_days)
 
     def generate_sid(self):
         return str(uuid4())
 
     def get_redis_expiration_time(self, app, session):
+        logging.info(session.permanent)
         if session.permanent:
             return app.permanent_session_lifetime
         return self.default_expiry_time
@@ -57,6 +63,10 @@ class RedisSessionInterface(SessionInterface):
             return
         redis_exp = self.get_redis_expiration_time(app, session)
         cookie_exp = self.get_expiration_time(app, session)
+
+        logging.info(redis_exp)
+        logging.info(cookie_exp)
+
         val = self.serializer.dumps(dict(session))
         self.redis.setex(self.prefix + session.sid, val,
                          int(redis_exp.total_seconds()))
