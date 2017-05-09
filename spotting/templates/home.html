@@ -101,11 +101,13 @@ const app = new Vue({
 	watch: {
 		brand: function() {
 			const vm = this;
-			readModels(vm.brand).then((models) => vm.models = models);
+			const searchBrand = vm.brand.trim();
+			readModels(searchBrand).then((models) => vm.models = models);
 		},
 		brandFree: function() {
 			const vm = this;
-			readModels(vm.brandFree).then((models) => vm.models = models);
+			const searchBrand = vm.brandFree.trim();
+			readModels(searchBrand).then((models) => vm.models = models);
 		}
 	}
 });
