@@ -92,6 +92,7 @@ models = {
     'rolls-royce': [
         'Dawn',
         'Ghost',
+        'Phantom',
         'Wraith',
     ],
     'ford': [
