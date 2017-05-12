@@ -42,6 +42,7 @@ models = {
         'XJ',
         'XJL',
         'F-Type',
+        'F-Pace',
     ],
     'bentley': [
         'Continental GT',
@@ -65,7 +66,8 @@ models = {
         'Cayman',
         'Boxster',
         'Targa',
-        '911 Carrera'
+        '911 Carrera',
+        '911 Turbo',
         '718 Boxster',
         '718 Cayman',
     ],
