@@ -36,8 +36,7 @@ class RedisSessionInterface(SessionInterface):
     def generate_sid(self):
         return str(uuid4())
 
-    def get_redis_expiration_time(self, app, session):
-
+    def get_redis_expiration_time(self, app, session):      
         if session.permanent:
             return app.permanent_session_lifetime
         return self.default_expiry_time
@@ -55,12 +54,10 @@ class RedisSessionInterface(SessionInterface):
 
     def save_session(self, app, session, response):
         domain = self.get_cookie_domain(app)
+
         if not session:
-            self.redis.delete(self.prefix + session.sid)
-            if session.modified:
-                response.delete_cookie(app.session_cookie_name,
-                                       domain=domain)
             return
+
         redis_exp = self.get_redis_expiration_time(app, session)
         cookie_exp = self.get_expiration_time(app, session)
 
