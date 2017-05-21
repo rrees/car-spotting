@@ -44,6 +44,13 @@
 				<li v-for="model in models" v-on:click="setModel(model)" class="suggested-model">[[model]]</li>
 			</ul>
 		</div>
+
+		<div class="suggested-sub-type-list">
+			<!-- <pre>[[$data]]</pre> -->
+			<ul>
+				<li v-for="subType in modelSubTypes" v-on:click="addSubType(subType)" class="suggested-sub-types">[[subType]]</li>
+			</ul>
+		</div>
 	</div>
 	<div class="form--control-group">
 		<button class="btn" type="submit">Record</button>
@@ -53,9 +60,11 @@
 
 {% block scripts %}
 <script>
-setTimeout(() => {
-	document.querySelector(".flash").classList.add("s-hidden");
-}, 4000);
+if(document.querySelector(".flash")) {
+	setTimeout(() => {
+		document.querySelector(".flash").classList.add("s-hidden");
+	}, 4000);
+}
 </script>
 
 <script src="https://vuejs.org/js/vue.min.js"></script>
@@ -76,6 +85,22 @@ function readModels(brand) {
 				});
 }
 
+function readSubTypes(brand) {
+	return fetch('/api/brand/' + brand + '/models/sub-types/suggestions')
+				.then((response) => {
+					if(response.ok) {
+						return response.json()
+							.then((json) => {
+								//console.log(json);
+								return json.models;
+							})
+					} else {
+						return [];
+					}
+				});
+}
+
+
 const app = new Vue({
 	delimiters: ["[[", "]]"],
 	el: "#spotting-form",
@@ -84,14 +109,20 @@ const app = new Vue({
 		model: undefined,
 		models: undefined,
 		brandFree: undefined,
-		suggestedBrands: undefined
+		suggestedBrands: undefined,
+		modelSubTypes: undefined,
 	},
 	methods: {
 		setModel: function(modelName) {
 			const vm = this;
 			vm.model = modelName;
 			vm.models = [];
-		}
+		},
+		addSubType: function(subType) {
+			const vm = this;
+			vm.model = `${vm.model} ${subType}`;
+			vm.modelSubTypes = [];
+		},
 	},
 	computed: {
 		modelChoicesPresent: function() {
@@ -103,6 +134,7 @@ const app = new Vue({
 			const vm = this;
 			const searchBrand = vm.brand.trim();
 			readModels(searchBrand).then((models) => vm.models = models);
+			readSubTypes(searchBrand).then((subTypes) => vm.modelSubTypes = subTypes);
 		},
 		brandFree: function() {
 			const vm = this;

@@ -21,7 +21,8 @@ infrequent_brands = [
     'Ford',
     'Chrysler',
     'Chevrolet',
-    'Mclaren'
+    'MG',
+    'Mclaren',
     'Nissan',
 ]
 
@@ -114,7 +115,7 @@ models = {
     ],
 }
 
-model_subtypes = {
+model_sub_types = {
     'porsche': [
         'S',
         'GTS',

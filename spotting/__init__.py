@@ -90,5 +90,12 @@ def models_lookup(brand_name):
 
     return flask.jsonify({"models" : models})
 
+@app.route('/api/brand/<brand_name>/models/sub-types/suggestions')
+def model_sub_types_lookup(brand_name):
+
+    models = [] if not brand_name else data.model_sub_types.get(brand_name.lower(), [])
+
+    return flask.jsonify({"models" : models})
+
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port = int(os.environ.get('PORT', 3000)))
