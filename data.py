@@ -21,8 +21,9 @@ infrequent_brands = [
     'Ford',
     'Chrysler',
     'Chevrolet',
-    'MG',
     'Mclaren',
+    'MG',
+    'Mini',
     'Nissan',
 ]
 
@@ -113,11 +114,19 @@ models = {
     'chrysler' : [
         '300',
     ],
+    [
+        "Cooper",
+        "Countryman",
+    ],
 }
 
 model_sub_types = {
     'porsche': [
         'S',
+        '4S',
         'GTS',
     ],
+    'mini': [
+        'S',
+    ]
 }
