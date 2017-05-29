@@ -114,7 +114,7 @@ models = {
     'chrysler' : [
         '300',
     ],
-    [
+    "mini": [
         "Cooper",
         "Countryman",
     ],
