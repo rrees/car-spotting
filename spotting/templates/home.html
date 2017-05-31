@@ -22,6 +22,9 @@
 		<label forid="brand-free">Brand (other)</label>
 		<input id="brand-free" name="brand_free" type="text" v-model="brandFree">
 		<div class="suggested-brands-list">
+			<ul>
+				<li v-for="brand in suggestedBrands" v-on:click="setBrandFree(brand)" class="suggested-brand">[[brand]]</li>
+			</ul>
 		</div>
 	</div>
 

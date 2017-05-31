@@ -30,6 +30,16 @@ function readSubTypes(brand) {
 				});
 }
 
+function readBrands(brandPrefix) {
+	return fetch(`/api/brands/${brandPrefix}/suggestions`)
+		.then((response) => {
+			if(response.ok) {
+				return response.json()
+					.then((json) => json.brands);
+			}
+			return [];
+		});
+}
 
 const app = new Vue({
 	delimiters: ["[[", "]]"],
@@ -53,6 +63,11 @@ const app = new Vue({
 			vm.model = `${vm.model} ${subType}`;
 			vm.modelSubTypes = [];
 		},
+		setBrandFree: function(brandName) {
+			const vm = this;
+			vm.brandFree = brandName;
+			vm.suggestedBrands = [];
+		}
 	},
 	computed: {
 		modelChoicesPresent: function() {
@@ -69,6 +84,13 @@ const app = new Vue({
 		brandFree: function() {
 			const vm = this;
 			const searchBrand = vm.brandFree.trim();
+			readBrands(searchBrand).then((brands) => {
+				if(brands.length === 1 && vm.brandFree === brands[0]) {
+					return;
+				}
+				
+				vm.suggestedBrands = brands;
+			});
 			readModels(searchBrand).then((models) => vm.models = models);
 		}
 	}

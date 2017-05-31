@@ -18,6 +18,7 @@ brands = [
 ]
 
 infrequent_brands = [
+    'Abarth',
     'Ford',
     'Chrysler',
     'Chevrolet',

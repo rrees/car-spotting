@@ -2,6 +2,7 @@ import os
 import json
 import logging
 import datetime
+import re
 
 import requests
 import flask
@@ -96,6 +97,12 @@ def model_sub_types_lookup(brand_name):
     models = [] if not brand_name else data.model_sub_types.get(brand_name.lower(), [])
 
     return flask.jsonify({"models" : models})
+
+@app.route('/api/brands/<brand_prefix>/suggestions')
+def infrequent_brands_lookup(brand_prefix):
+    brands = [] if not brand_prefix else [brand for brand in data.infrequent_brands if re.match(brand_prefix, brand, flags=re.IGNORECASE)]
+
+    return flask.jsonify({"brands" : brands})
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port = int(os.environ.get('PORT', 3000)))
