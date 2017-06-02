@@ -88,10 +88,11 @@ const app = new Vue({
 				if(brands.length === 1 && vm.brandFree === brands[0]) {
 					return;
 				}
-				
+
 				vm.suggestedBrands = brands;
 			});
 			readModels(searchBrand).then((models) => vm.models = models);
+			readSubTypes(searchBrand).then((subTypes) => vm.modelSubTypes = subTypes);
 		}
 	}
 });
