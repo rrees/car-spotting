@@ -129,5 +129,8 @@ model_sub_types = {
     ],
     'mini': [
         'S',
-    ]
+    ],
+    'jaguar': [
+        'S',
+    ],
 }
