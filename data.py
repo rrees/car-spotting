@@ -76,6 +76,7 @@ models = {
     ],
     'mazda': [
         "MX5",
+        "RX8",
     ],
     'mercedes-benz': [
         'SLK',
@@ -132,5 +133,8 @@ model_sub_types = {
     ],
     'jaguar': [
         'S',
+    ],
+    'tesla': [
+        'P90D',
     ],
 }
