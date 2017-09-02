@@ -27,6 +27,7 @@ infrequent_brands = [
     'Mini',
     'Nissan',
     'Daihatsu',
+    'Smart',
 ]
 
 models = {
@@ -123,6 +124,9 @@ models = {
     ],
     "daihatsu": [
         "Copen",
+    ],
+    'smart': [
+        'Roadster',
     ],
 }
 
