@@ -63,8 +63,9 @@ def authorisation_callback():
 
     if user_info:
         flask.session['profile'] = user_info
+        return flask.redirect('/home')
 
-    return flask.redirect('/home')
+    return flask.redirect('/login')
 
 @app.route('/forms/log/submission', methods=['POST'])
 def log_spot():

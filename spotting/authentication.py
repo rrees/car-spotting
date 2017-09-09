@@ -28,6 +28,9 @@ def obtain_user_info(code):
 
 	#logging.info(token_info_json)
 
+    if not 'access_token' in token_info_json:
+        return None
+
 	user_url = "https://{domain}/userinfo?access_token={access_token}".format(domain=config.auth0['domain'],
 		access_token=token_info_json['access_token'])
 
