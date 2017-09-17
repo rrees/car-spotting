@@ -73,6 +73,7 @@ models = {
         'Targa',
         '911 Carrera',
         '911 Turbo',
+        '911 Targa',
         '718 Boxster',
         '718 Cayman',
     ],
@@ -133,6 +134,7 @@ models = {
 model_sub_types = {
     'porsche': [
         'S',
+        '4',
         '4S',
         'GTS',
     ],
