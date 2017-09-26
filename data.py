@@ -129,6 +129,12 @@ models = {
     'smart': [
         'Roadster',
     ],
+    'lotus': [
+        'Evora',
+        'Exige',
+        'Elise',
+        '3-Eleven',
+    ],
 }
 
 model_sub_types = {
