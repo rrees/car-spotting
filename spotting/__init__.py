@@ -25,7 +25,7 @@ from repositories import logs
 ENV = os.environ.get("ENV", "PROD")
 
 app = flask.Flask(__name__)
-app.secret_key = os.urandom(24)
+app.secret_key = os.environ.get("SECRET_KEY", os.urandom(24))
 
 app.config.update({
     'PERMANENT_SESSION_LIFETIME': datetime.timedelta(days=2)
