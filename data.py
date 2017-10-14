@@ -28,6 +28,7 @@ infrequent_brands = [
     'Nissan',
     'Daihatsu',
     'Smart',
+    'Peugeot',
 ]
 
 models = {
@@ -135,6 +136,9 @@ models = {
         'Elise',
         '3-Eleven',
     ],
+    'peugeot': [
+        'RCZ',
+    ]
 }
 
 model_sub_types = {
