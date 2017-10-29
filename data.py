@@ -123,6 +123,8 @@ models = {
     "mini": [
         "Cooper",
         "Countryman",
+        "Paceman",
+        "Clubman",
     ],
     "daihatsu": [
         "Copen",
