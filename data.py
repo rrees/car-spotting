@@ -114,6 +114,7 @@ models = {
     'nissan': [
         'Leaf',
         '370Z',
+        'GT-R',
     ],
     'mclaren': [
         '570S',
