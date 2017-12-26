@@ -9,7 +9,7 @@ from redis import Redis
 from werkzeug.datastructures import CallbackDict
 from flask.sessions import SessionInterface, SessionMixin
 
-default_session_days = 3
+default_session_days = 30
 
 class RedisSession(CallbackDict, SessionMixin):
 

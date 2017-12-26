@@ -28,7 +28,7 @@ app = flask.Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", os.urandom(24))
 
 app.config.update({
-    'PERMANENT_SESSION_LIFETIME': datetime.timedelta(days=2)
+    'PERMANENT_SESSION_LIFETIME': datetime.timedelta(days=30)
     })
 
 
