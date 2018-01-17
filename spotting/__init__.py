@@ -25,10 +25,11 @@ from repositories import logs
 ENV = os.environ.get("ENV", "PROD")
 
 app = flask.Flask(__name__)
-app.secret_key = os.environ.get("SECRET_KEY", os.urandom(24))
+app.secret_key = os.environ.get("SECRET_KEY", "Joe")#os.urandom(24))
 
 app.config.update({
-    'PERMANENT_SESSION_LIFETIME': datetime.timedelta(days=30)
+    'PERMANENT_SESSION_LIFETIME': datetime.timedelta(days=30),
+    'SESSION_COOKIE_SECURE': True if not ENV == "DEV" else False
     })
 
 
@@ -37,7 +38,6 @@ if not ENV == "DEV":
 
 if "REDIS_URL" in os.environ:
     redis_instance = redis.from_url(os.environ.get("REDIS_URL"))
-    app.session_interface = redis_session.RedisSessionInterface(redis=redis_instance)
 
 @app.route('/')
 def index():
@@ -60,9 +60,13 @@ def authorisation_callback():
     code = flask.request.args.get('code')
 
     user_info = authentication.obtain_user_info(code)
+    #logging.info(user_info)
 
     if user_info:
-        flask.session['profile'] = user_info
+        flask.session.permanent = True
+        flask.session['profile'] = {
+            "user_email": user_info['email']
+        }
         return flask.redirect('/home')
 
     return flask.redirect('/login')

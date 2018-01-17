@@ -13,7 +13,8 @@ def requires_auth(f):
       # Redirect to Login page here
       return flask.redirect('/')
 
-    user_email = flask.session.get('profile', {}).get('email', '')
+    user_email = flask.session.get('profile', {}).get('user_email', None)
+    #logging.info(user_email)
     
     if not user_email == USER_EMAIL:
         return flask.redirect('/')
