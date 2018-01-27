@@ -111,6 +111,7 @@ models = {
     ],
     'abarth': [
         '500',
+        '124 Spider',
     ],
     'nissan': [
         'Leaf',
@@ -161,5 +162,6 @@ model_sub_types = {
     ],
     'tesla': [
         'P90D',
+        '100D',
     ],
 }
