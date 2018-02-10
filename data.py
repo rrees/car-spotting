@@ -23,6 +23,7 @@ infrequent_brands = [
     'Ford',
     'Chrysler',
     'Chevrolet',
+    'Corvette',
     'Mclaren',
     'MG',
     'Nissan',
@@ -144,7 +145,10 @@ models = {
     ],
     'peugeot': [
         'RCZ',
-    ]
+    ],
+    'corvette': [
+        'Stingray',
+    ],
 }
 
 model_sub_types = {
