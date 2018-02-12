@@ -112,11 +112,10 @@ def infrequent_brands_lookup(brand_prefix):
 @app.route('/manifest.json')
 def web_manifest():
     manifest = {
-        "manifest_version": "2",
         "short_name": "Car Spotter",
         "name": "Car Spotter",
-        "version": "1.0.0",
         "start_url": "/",
+        "orientation": "portrait",
     }
 
     return flask.jsonify(manifest)
