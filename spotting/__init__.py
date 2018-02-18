@@ -113,9 +113,17 @@ def infrequent_brands_lookup(brand_prefix):
 def web_manifest():
     manifest = {
         "short_name": "Car Spotter",
-        "name": "Car Spotter",
+        "name": "Spotting",
         "start_url": "/",
         "orientation": "portrait",
+        "background_color": "white",
+        "icons": [
+            {
+                "src": "/static/images/icon.png",
+                "sizes": "1024x1024",
+                "type": "image/png",
+            }
+        ],
     }
 
     return flask.jsonify(manifest)
