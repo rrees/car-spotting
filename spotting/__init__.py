@@ -112,8 +112,8 @@ def infrequent_brands_lookup(brand_prefix):
 @app.route('/manifest.json')
 def web_manifest():
     manifest = {
-        "short_name": "Car Spotter",
-        "name": "Spotting",
+        "short_name": "Spotting",
+        "name": "Car Spotter",
         "start_url": "/",
         "orientation": "portrait",
         "background_color": "white",
@@ -122,7 +122,12 @@ def web_manifest():
                 "src": "/static/images/icon.png",
                 "sizes": "1024x1024",
                 "type": "image/png",
-            }
+            },
+            {
+                "src": "/static/images/icon-192.png",
+                "sizes": "192x192",
+                "type": "image/png",
+            },
         ],
     }
 
