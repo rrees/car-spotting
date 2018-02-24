@@ -24,12 +24,14 @@ infrequent_brands = [
     'Chrysler',
     'Chevrolet',
     'Corvette',
+    'Lotus',
     'Mclaren',
     'MG',
     'Nissan',
     'Daihatsu',
     'Smart',
     'Peugeot',
+    'Vauxhall',
 ]
 
 models = {
@@ -148,6 +150,9 @@ models = {
     ],
     'corvette': [
         'Stingray',
+    ],
+    'vauxhall': [
+        'Tigra',
     ],
 }
 
