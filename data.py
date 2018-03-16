@@ -168,6 +168,7 @@ model_sub_types = {
     ],
     'jaguar': [
         'S',
+        'R',
     ],
     'tesla': [
         'P90D',
