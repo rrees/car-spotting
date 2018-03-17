@@ -78,6 +78,7 @@ models = {
         '911 Carrera',
         '911 Turbo',
         '911 Targa',
+        '911 GT3',
         '718 Boxster',
         '718 Cayman',
     ],
