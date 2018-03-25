@@ -148,6 +148,7 @@ models = {
     ],
     'peugeot': [
         'RCZ',
+        '206 CC',
     ],
     'corvette': [
         'Stingray',
@@ -155,6 +156,9 @@ models = {
     'vauxhall': [
         'Tigra',
     ],
+    'alfa romeo': [
+        'Brera',
+    ]
 }
 
 model_sub_types = {
