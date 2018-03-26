@@ -18,7 +18,7 @@
 			{% endfor %}
 		</select>
 	</div>
-	<div class="form--control-group">
+	<div class="form--control-group" v-show="!brand">
 		<label for="brand-free">Brand (other)</label>
 		<input id="brand-free" name="brand_free" type="text" v-model="brandFree">
 		<div class="suggested-brands-list">
