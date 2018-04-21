@@ -1,5 +1,6 @@
 
 brands = [
+    'Abarth',
     'Alfa Romeo',
     'Aston Martin',
     'Audi',
@@ -15,11 +16,10 @@ brands = [
     'Porsche',
     'Rolls-Royce',
 	'Tesla',
-    'Toyota',
+
 ]
 
 infrequent_brands = [
-    'Abarth',
     'Ford',
     'Chrysler',
     'Chevrolet',
@@ -31,6 +31,8 @@ infrequent_brands = [
     'Daihatsu',
     'Smart',
     'Peugeot',
+    'Triumph',
+    'Toyota',
     'Vauxhall',
 ]
 
@@ -101,6 +103,7 @@ models = {
     'maserati': [
         'Ghibli',
         'GranTurismo',
+        'GranCabrio',
         'Quattroporte',
     ],
     'rolls-royce': [
@@ -164,6 +167,7 @@ models = {
 model_sub_types = {
     'porsche': [
         'S',
+        '3',
         '4',
         '4S',
         'GTS',
