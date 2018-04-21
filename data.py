@@ -118,6 +118,7 @@ models = {
     ],
     'abarth': [
         '500',
+        '595 Turismo',
         '124 Spider',
     ],
     'nissan': [
