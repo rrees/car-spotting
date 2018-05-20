@@ -162,7 +162,8 @@ models = {
     ],
     'alfa romeo': [
         'Brera',
-    ]
+        '4C',
+    ],
 }
 
 model_sub_types = {
