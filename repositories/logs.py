@@ -7,7 +7,7 @@ import fieldbook_py as fieldbook
 
 import dataset
 
-_use_fieldbook = True
+_use_fieldbook = False
 _use_postgres = True
 
 fieldbook_config = json.loads(os.environ['FIELDBOOK_CONFIG'])
@@ -40,7 +40,7 @@ def fieldbook_save(brand, model=None, classic=False, convertible=False):
 
 def postgres_save(brand, model=None, classic=False, convertible=False):
     database_url = os.environ.get('DATABASE_URL', None)
-    assert(database_url, "No database url defined")
+    assert database_url, "No database url defined"
     db = dataset.connect(database_url)
     logs_table = db['logs']
 
