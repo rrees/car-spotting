@@ -11,6 +11,7 @@ brands = [
     'Lamborghini',
     'Maserati',
     'Mazda',
+    'Mclaren',
     'Mercedes-Benz',
     'Mini',
     'Porsche',
@@ -25,7 +26,6 @@ infrequent_brands = [
     'Chevrolet',
     'Corvette',
     'Lotus',
-    'Mclaren',
     'MG',
     'Nissan',
     'Daihatsu',
@@ -83,6 +83,7 @@ models = {
         '911 GT3',
         '718 Boxster',
         '718 Cayman',
+        '718 Cayman GT4',
     ],
     'mazda': [
         "MX5",
