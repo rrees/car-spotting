@@ -92,6 +92,7 @@ models = {
     'mercedes-benz': [
         'SLK',
         'SL',
+        'AMG GT',
     ],
     'aston martin': [
         'DB',
