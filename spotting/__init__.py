@@ -22,6 +22,8 @@ import data
 
 from repositories import logs
 
+from spotting import handlers
+
 ENV = os.environ.get("ENV", "PROD")
 
 app = flask.Flask(__name__)
@@ -132,6 +134,10 @@ def web_manifest():
     }
 
     return flask.jsonify(manifest)
+
+@app.route('/recent')
+def recent_logs():
+    return handlers.recent_logs()
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port = int(os.environ.get('PORT', 3000)))

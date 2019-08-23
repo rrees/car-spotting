@@ -1,5 +1,4 @@
-from app import app
+import flask
+def recent_logs():
+	return flask.render_template("recent.html",)
 
-@app.route('/')
-def index():
-	return "Hello world"
