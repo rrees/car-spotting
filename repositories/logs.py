@@ -8,6 +8,11 @@ import dataset
 _use_postgres = True
 
 
+def _connect():
+    database_url = os.environ.get('DATABASE_URL', None)
+    assert database_url, "No database url defined"
+    return dataset.connect(database_url)
+
 def save(brand, model=None, classic=False, convertible=False):
         postgres_save(brand, model, classic, convertible)
 
@@ -32,3 +37,9 @@ def postgres_save(brand, model=None, classic=False, convertible=False):
     pk = logs_table.insert(log_data)
 
     return pk
+
+def recent():
+    db = _connect()
+    logs_table = db['logs']
+
+    return logs_table.find(order_by=['-id'], _limit=10)
