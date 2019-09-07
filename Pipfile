@@ -28,6 +28,7 @@ WTForms = "==2.1"
 flask = "*"
 
 [dev-packages]
+ipython = "*"
 
 [requires]
 python_version = "3.5"

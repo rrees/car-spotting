@@ -13,6 +13,9 @@ def _connect():
     assert database_url, "No database url defined"
     return dataset.connect(database_url)
 
+def _map_log(log_dataset):
+    return log_dataset
+
 def save(brand, model=None, classic=False, convertible=False):
         postgres_save(brand, model, classic, convertible)
 
@@ -42,4 +45,8 @@ def recent():
     db = _connect()
     logs_table = db['logs']
 
-    return logs_table.find(order_by=['-id'], _limit=10)
+    def results_generator(log_query):
+        for log in log_query:
+            yield _map_log(log)
+
+    return results_generator(logs_table.find(order_by=['-id'], _limit=10))
