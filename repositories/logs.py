@@ -3,9 +3,13 @@ import datetime
 import json
 import logging
 
+from collections import namedtuple
+
 import dataset
 
 _use_postgres = True
+
+Log = namedtuple('Log', ['date', 'brand', 'model', 'classic'])
 
 
 def _connect():
@@ -14,7 +18,12 @@ def _connect():
     return dataset.connect(database_url)
 
 def _map_log(log_dataset):
-    return log_dataset
+    return Log(
+        date=log_dataset['date'],
+        brand=log_dataset.get('brand', None),
+        model=log_dataset.get('model', None),
+        classic=log_dataset.get('classic', False),
+        )
 
 def save(brand, model=None, classic=False, convertible=False):
         postgres_save(brand, model, classic, convertible)
