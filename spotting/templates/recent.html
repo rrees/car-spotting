@@ -4,4 +4,13 @@
 
 {% block content %}
 <h1>Recent Logs</h1>
+
+{% if recent_logs %}
+<ol>
+{% for log in recent_logs %}
+<li>{{log.log_date}} {{log.brand}} {{log.model if log.model}}</li>
+{% endfor %}
+</ol>
+{% endif %}
+
 {% endblock %}

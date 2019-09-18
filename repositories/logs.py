@@ -4,13 +4,20 @@ import json
 import logging
 
 from collections import namedtuple
+from dataclasses import dataclass
 
 import dataset
 
 _use_postgres = True
 
-Log = namedtuple('Log', ['date', 'brand', 'model', 'classic'])
+#Log = namedtuple('Log', ['date', 'brand', 'model', 'classic'])
 
+@dataclass(frozen=True)
+class Log:
+    log_date: datetime.date
+    brand: str
+    model: str
+    classic: bool
 
 def _connect():
     database_url = os.environ.get('DATABASE_URL', None)
@@ -19,7 +26,7 @@ def _connect():
 
 def _map_log(log_dataset):
     return Log(
-        date=log_dataset['date'],
+        log_date=log_dataset['date'],
         brand=log_dataset.get('brand', None),
         model=log_dataset.get('model', None),
         classic=log_dataset.get('classic', False),
