@@ -14,8 +14,9 @@ import redis
 import decorators
 import redis_session
 
-import spotting.authentication as authentication
-import spotting.config as config
+from .auth_password import decorators as auth_decorators
+from .auth_password.routes import auth_routes
+
 import forms
 
 import data
@@ -41,39 +42,26 @@ if not ENV == "DEV":
 if "REDIS_URL" in os.environ:
     redis_instance = redis.from_url(os.environ.get("REDIS_URL"))
 
+
+routes = auth_routes
+
+for path, endpoint, handler, methods in routes:
+    app.add_url_rule(path, endpoint, handler, methods=methods)
+
 @app.route('/')
 def index():
     if 'profile' in flask.session:
         return flask.redirect('/home')
-    return flask.render_template("index.html", app_config=config.config, callback_url = config.callback_url[ENV])
+    return flask.render_template("index.html")
 
 @app.route('/home')
-@decorators.requires_auth
+@auth_decorators.login_required
 def home():
-    user = flask.session['profile']
-    return flask.render_template("home.html", user=user, brands=data.brands)
+    return flask.render_template("home.html", brands=data.brands)
 
-@app.route('/callback')
-def authorisation_callback():
-
-    if 'profile' in flask.session:
-        return flask.redirect('/home')
-
-    code = flask.request.args.get('code')
-
-    user_info = authentication.obtain_user_info(code)
-    #logging.info(user_info)
-
-    if user_info:
-        flask.session.permanent = True
-        flask.session['profile'] = {
-            "user_email": user_info['email']
-        }
-        return flask.redirect('/home')
-
-    return flask.redirect('/login')
 
 @app.route('/forms/log/submission', methods=['POST'])
+@auth_decorators.login_required
 def log_spot():
     form = forms.LogForm(flask.request.form)
 
