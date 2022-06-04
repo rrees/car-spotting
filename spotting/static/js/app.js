@@ -41,8 +41,9 @@ function readBrands(brandPrefix) {
 		});
 }
 
+Vue.config.delimiters = ["[[", "]]"];
+
 const app = new Vue({
-	delimiters: ["[[", "]]"],
 	el: "#spotting-form",
 	data: {
 		brand: undefined,
