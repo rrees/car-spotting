@@ -21,7 +21,10 @@ class Log:
 
 def _connect():
     database_url = os.environ.get('DATABASE_URL', None)
+    if database_url.startswith('postgres:'):
+        database_url = database_url.replace('postgres:', 'postgresql:')
     assert database_url, "No database url defined"
+    assert database_url.startswith('postgresql://'), 'Database protocol is incorrect'
     return dataset.connect(database_url)
 
 def _map_log(log_dataset):
@@ -36,9 +39,7 @@ def save(brand, model=None, classic=False, convertible=False):
         postgres_save(brand, model, classic, convertible)
 
 def postgres_save(brand, model=None, classic=False, convertible=False):
-    database_url = os.environ.get('DATABASE_URL', None)
-    assert database_url, "No database url defined"
-    db = dataset.connect(database_url)
+    db = _connect()
     logs_table = db['logs']
 
     now = datetime.date.today()
