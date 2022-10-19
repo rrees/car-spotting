@@ -20,7 +20,11 @@ class Log:
     classic: bool
 
 def _connect():
-    database_url = os.environ.get('DATABASE_URL', None)
+    database_url = os.environ.get('DB_URL', None)
+
+    if not database_url:
+        database_url = os.environ.get('DATABASE_URL', None)
+
     if database_url.startswith('postgres:'):
         database_url = database_url.replace('postgres:', 'postgresql:')
     assert database_url, "No database url defined"
