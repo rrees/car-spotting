@@ -11,15 +11,14 @@ from flask_sslify import SSLify
 
 import redis
 
-import decorators
-import redis_session
+from spotting import decorators
 
 from .auth_password import decorators as auth_decorators
 from .auth_password.routes import auth_routes
 
-import forms
+from spotting import forms
 
-import data
+from spotting import data
 
 from repositories import logs
 
