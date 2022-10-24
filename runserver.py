@@ -1,3 +1,3 @@
-import spotting
+from spotting import app
 
-spotting.app.run(debug=True)
+app.app.run(debug=True)

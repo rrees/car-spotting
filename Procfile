@@ -1,1 +1,1 @@
-web: gunicorn spotting:app
+web: gunicorn spotting:app.app
