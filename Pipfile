@@ -6,7 +6,7 @@ name = "pypi"
 [packages]
 dataset = "*"
 gunicorn = "*"
-psycopg2 = "==2.9.3"
+psycopg2 = "==2.9.5"
 python-dateutil = "==2.7.3"
 redis = "*"
 requests = "*"
