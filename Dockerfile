@@ -1,11 +1,13 @@
 FROM python:3.9-alpine
 
-COPY . /app
-WORKDIR app
-
 RUN \
+ apk update && \
+ apk upgrade && \
  apk add --no-cache postgresql-libs && \
  apk add --no-cache --virtual .build-deps gcc musl-dev postgresql-dev
+
+COPY . /app
+WORKDIR app
 
 RUN pip install pipenv
 RUN pipenv install
