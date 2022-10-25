@@ -11,7 +11,7 @@ python-dateutil = "==2.8.2"
 
 redis = "*"
 requests = "*"
-Flask-Session = "==0.3.0"
+Flask-Session = "==0.4.0"
 Flask-SSLify = "==0.1.5"
 Flask-WTF = "==1.0.1"
 WTForms = "*"
