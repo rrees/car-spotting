@@ -1,0 +1,7 @@
+# flyctl launch added from .gitignore
+**/.ve
+**/.venv
+**/*.pyc
+**/.vscode
+**/venv
+**/.env
