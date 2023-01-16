@@ -13,7 +13,7 @@ redis = "*"
 requests = "*"
 Flask-Session = "==0.3.0"
 Flask-SSLify = "==0.1.5"
-Flask-WTF = "==1.0.1"
+Flask-WTF = "==1.1.0"
 WTForms = "*"
 flask = "*"
 
