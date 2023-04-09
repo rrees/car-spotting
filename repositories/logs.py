@@ -43,31 +43,30 @@ def save(brand, model=None, classic=False, convertible=False):
         postgres_save(brand, model, classic, convertible)
 
 def postgres_save(brand, model=None, classic=False, convertible=False):
-    db = _connect()
-    logs_table = db['logs']
+    with _connect() as db:
+        logs_table = db['logs']
 
-    now = datetime.date.today()
+        now = datetime.date.today()
 
-    log_data = {
-        'date': now,
-        'brand': brand,
-        'classic': classic,
-        'convertible': convertible,
-    }
+        log_data = {
+            'date': now,
+            'brand': brand,
+            'classic': classic,
+            'convertible': convertible,
+        }
 
-    if model:
-        log_data['model'] = model
+        if model:
+            log_data['model'] = model
 
-    pk = logs_table.insert(log_data)
+        pk = logs_table.insert(log_data)
 
     return pk
 
 def recent():
-    db = _connect()
-    logs_table = db['logs']
-
     def results_generator(log_query):
         for log in log_query:
             yield _map_log(log)
 
-    return results_generator(logs_table.find(order_by=['-id'], _limit=10))
+    with _connect() as db: 
+        logs_table = db['logs']
+        return results_generator(logs_table.find(order_by=['-id'], _limit=10))
