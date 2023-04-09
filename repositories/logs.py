@@ -23,7 +23,7 @@ def _connect():
     database_url = os.environ.get('DB_URL', None)
 
     if not database_url:
-        database_url = os.environ.get('DATABASE_URL', None)
+        raise RuntimeError('No database URL supplied')
 
     if database_url.startswith('postgres:'):
         database_url = database_url.replace('postgres:', 'postgresql:')
