@@ -1,4 +1,7 @@
 :root {
 	--navigation-bar-height: 2.5rem;
 	--base-font-size: 24px;
+	--max-page-width: 50ch;
+
+	--base-input-font-size: calc(1.5 * var(--base-font-size));
 }

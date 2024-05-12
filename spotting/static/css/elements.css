@@ -1,10 +1,10 @@
 
 body {
-	margin: auto;
+	margin-block: auto;
 	margin-top: var(--navigation-bar-height);
-	margin-left: 1.5rem;
-	margin-right: 1.5rem;
+	margin-inline: 1.5rem;
 	padding-top: 1rem;
 	font-family: 'Open Sans', Helevetica, Arial, sans-serif;
 	font-size: var(--base-font-size);
+	font-display: swap;
 }
