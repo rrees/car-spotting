@@ -8,23 +8,26 @@ label {
 	font-size: 2rem;
 }
 
+input {
+	padding: 0.25rem;
+}
+
 input[type="text"],
 input[type="email"],
 input[type="password"] {
 	line-height: 120%;
 	font-size: var(--base-input-font-size);
-	padding: 0.75rem;
 }
 
 input[type="checkbox"] {
 	transform: scale(2);
 	margin: 1rem;
-	padding: 0.75rem;
 }
 
 select {
 	font-size: var(--base-input-font-size);
-	padding: 0.75rem;
+	line-height: 120%;
+	padding: 0.25rem;
 }
 
 
@@ -42,4 +45,11 @@ select {
 #spotting-form {
 	margin-inline: auto;
 	max-width: var(--max-page-width);
+}
+
+
+@media(width >= 30rem) {
+	input {
+		padding: 0.75rem;
+	}
 }
