@@ -9,3 +9,9 @@
 	justify-content: space-between;
 	font-size: 0.75rem;
 }
+
+@media(width > 60rem) {
+	.navigation-bar {
+		font-size: 1rem;
+	}
+}
