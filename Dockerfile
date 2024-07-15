@@ -1,4 +1,10 @@
-FROM python:3.11-alpine
+FROM python:3.12.2-alpine AS builder
+
+ENV PYTHONUNBUFFERED=1 \
+    PYTHONDONTWRITEBYTECODE=1
+
+ENV PIPENV_VENV_IN_PROJECT=1 \
+    PIPENV_CUSTOM_VENV_NAME=.venv
 
 RUN \
  apk update && \
@@ -6,16 +12,23 @@ RUN \
  apk add --no-cache postgresql-libs && \
  apk add --no-cache --virtual .build-deps gcc musl-dev postgresql-dev
 
+WORKDIR /app
 COPY . /app
-WORKDIR app
+
 
 RUN pip install pipenv
 RUN pipenv install
 
 RUN apk --purge del .build-deps
 
+
+FROM python:3.12.2-alpine
+
+WORKDIR /app
+COPY --from=builder /app .
+
 ENV PYTHONUNBUFFERED=1
 
 EXPOSE 8080
 
-ENTRYPOINT [ "pipenv", "run", "gunicorn", "--bind=0.0.0.0:8080", "--worker-tmp-dir", "/dev/shm", "spotting.app:app"]
+ENTRYPOINT [ "/app/.venv/bin/gunicorn", "--bind=0.0.0.0:8080", "--worker-tmp-dir", "/dev/shm", "spotting.app:app"]
