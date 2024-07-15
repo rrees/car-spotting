@@ -5,3 +5,6 @@
 **/.vscode
 **/venv
 **/.env
+.editorconfig
+.python-version
+.tool-versions

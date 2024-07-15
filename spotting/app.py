@@ -7,8 +7,6 @@ import re
 import requests
 import flask
 
-from flask_sslify import SSLify
-
 from spotting import decorators
 
 from .auth_password import decorators as auth_decorators
@@ -34,9 +32,6 @@ app.config.update(
     }
 )
 
-if not ENV == "DEV":
-    sslify = SSLify(app)
-
 routes = auth_routes
 
 for path, endpoint, handler, methods in routes:
@@ -45,7 +40,7 @@ for path, endpoint, handler, methods in routes:
 
 @app.route("/")
 def index():
-    if "profile" in flask.session:
+    if "email" in flask.session:
         return flask.redirect("/home")
     return flask.render_template("index.html")
 
