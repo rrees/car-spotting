@@ -1,9 +1,7 @@
 FROM python:3.12.2-alpine AS builder
 
 ENV PYTHONUNBUFFERED=1 \
-    PYTHONDONTWRITEBYTECODE=1
-
-ENV PIPENV_VENV_IN_PROJECT=1 \
+    PIPENV_VENV_IN_PROJECT=1 \
     PIPENV_CUSTOM_VENV_NAME=.venv
 
 RUN \
@@ -24,11 +22,11 @@ RUN apk --purge del .build-deps
 
 FROM python:3.12.2-alpine
 
+ENV PYTHONUNBUFFERED=1
+
 WORKDIR /app
 COPY --from=builder /app .
 
-ENV PYTHONUNBUFFERED=1
-
 EXPOSE 8080
 
-ENTRYPOINT [ "/app/.venv/bin/gunicorn", "--bind=0.0.0.0:8080", "--worker-tmp-dir", "/dev/shm", "spotting.app:app"]
+CMD [ "/app/.venv/bin/gunicorn", "--bind=0.0.0.0:8080", "--worker-tmp-dir", "/dev/shm", "spotting.app:app"]
