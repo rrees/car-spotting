@@ -1,4 +1,6 @@
-FROM python:3.12.2-alpine AS builder
+ARG PYTHON_VERSION=3.12.2
+
+FROM python:${PYTHON_VERSION}-alpine AS builder
 
 ENV PYTHONUNBUFFERED=1 \
     PIPENV_VENV_IN_PROJECT=1 \
@@ -20,9 +22,11 @@ RUN pipenv install
 RUN apk --purge del .build-deps
 
 
-FROM python:3.12.2-alpine
+FROM python:${PYTHON_VERSION}-alpine
 
 ENV PYTHONUNBUFFERED=1
+
+RUN apk update && apk upgrade
 
 WORKDIR /app
 COPY --from=builder /app .
