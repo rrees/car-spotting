@@ -4,7 +4,6 @@ import logging
 import datetime
 import re
 
-import requests
 import flask
 
 from spotting import decorators

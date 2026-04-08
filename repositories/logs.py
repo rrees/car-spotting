@@ -20,7 +20,7 @@ class Log:
     classic: bool
 
 def _connect():
-    database_url = os.environ.get('DB_URL', None)
+    database_url = os.environ.get('DATABASE_URL', None)
 
     if not database_url:
         raise RuntimeError('No database URL supplied')

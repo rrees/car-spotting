@@ -8,7 +8,6 @@ dataset = "*"
 gunicorn = "*"
 psycopg2-binary = "*"
 python-dateutil = "*"
-requests = "*"
 WTForms = "*"
 flask = "*"
 
