@@ -9,8 +9,6 @@ gunicorn = "*"
 psycopg2-binary = "*"
 python-dateutil = "*"
 requests = "*"
-Flask-SSLify = "*"
-Flask-WTF = "*"
 WTForms = "*"
 flask = "*"
 
@@ -19,4 +17,4 @@ ipython = "*"
 bpython = "*"
 
 [requires]
-python_version = "3.12"
+python_version = "3.13"
