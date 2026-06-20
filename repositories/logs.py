@@ -8,6 +8,8 @@ from dataclasses import dataclass
 
 import dataset
 
+from .connect import connect
+
 _use_postgres = True
 
 #Log = namedtuple('Log', ['date', 'brand', 'model', 'classic'])
